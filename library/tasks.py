@@ -49,6 +49,7 @@ def check_overdue_loans(self, loan_id):
         all_overdue_loans = Loan.objects.filter(id=loan_id, 
                                                 is_returned=False, 
                                                 due_date__lt=today)
+        
         for loan in all_overdue_loans:
             member_email = loan.member.user.email
             book_title = loan.book.title
